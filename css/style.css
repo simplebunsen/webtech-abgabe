@@ -1,31 +1,176 @@
-html{
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
     height: 100%;
 }
+
+/* Vars */
+
+:root {
+    --light-blue: #1C57CB;
+    --middle-blue: #222C5F;
+    --dark-blue: #161c41;
+    --sec-color: #9AB044;
+    --bg-color: #8DC4FC;
+    --card-bg: #EFEDFF;
+}
+
+
+body {
+    font-family: 'Titillium Web', sans-serif;
+}
+
 /* Grid Setup */
-body{
+body {
     margin: 0px;
     height: 100%;
     display: grid;
-    grid-template-columns: 10rem repeat(3, 1fr);
+    grid-template-columns: 12rem repeat(3, 1fr);
     grid-template-rows: 5rem auto 5rem;
 }
-#header{
-    background-color: 	green;
+
+#header {
+    background-color: var(--dark-blue);
     grid-column: 1 / 5;
     grid-row: 1 / 2;
+    color: white;
 }
-#navigation{
-    background-color: aquamarine;
+
+#navigation {
+    background-color: var(--middle-blue);
     grid-column: 1 / 2;
     grid-row: 2 / 3;
+    color: white;
 }
-#main-content{
-    background-color: red;
+
+#main-content {
     grid-column: 2 / 5;
     grid-row: 2 / 3;
 }
-#footer{
-    background-color: blue;
+
+#footer {
+    background-color: var(--dark-blue);
     grid-column: 1 / 5;
     grid-row: 3 / 4;
+    color: white;
 }
+
+
+/* HEADER RULES */
+
+#header img.logo {
+    height: 4rem;
+    -webkit-filter: invert(100%);
+    /* Safari/Chrome */
+    filter: invert(100%);
+}
+
+#header{
+    box-shadow: 0px 0px 20px 0px black;
+}
+
+#header div.header-wrapper {
+    margin: 0 1rem;
+    gap: 1rem;
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+
+/* END OF HEADER RULES */
+
+/* NAVIGATION RULES */
+
+
+/* END OF NAVIGATION RULES */
+#navigation {
+    padding: 1.5rem .5rem 5rem 1rem;
+}
+
+#navigation ul {
+    list-style: none;
+}
+
+#navigation ul>li>a {
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+}
+
+
+/* MAIN RULES */
+
+#main-content {
+    padding: 2rem 3rem 3rem 3rem;
+    display: flex;
+    gap: 2rem;
+}
+
+#main-content article{
+    max-width: 1000px;
+}
+
+#main-content article h1{
+    font-size: 3rem;
+}
+
+#main-content figure.image{
+    float: right;
+    margin: 1rem;
+    padding: 0.1rem;
+}
+
+#main-content figure{
+    border-style: dotted;
+}
+
+#main-content figure figcaption{
+    padding: 0 0.5rem 0.3rem 0.5rem;
+    font-style: italic;
+    color: #0f0f0f;
+    font-family: 'Roboto Mono', monospace;
+    font-size: .7rem;
+}
+
+#main-content aside{
+    position: sticky;
+    top: 2rem;
+    max-width: 20%;
+    border-style:double;
+    border-width: 3px;
+    
+
+    margin-top: 5rem;
+
+    padding: 1rem;
+    padding-left: 2rem;
+    box-sizing: content-box;
+    height: fit-content;
+}
+
+#main-content aside>ol>li>a{
+    color: var(--dark-blue);
+    text-decoration: underline dotted grey;    
+    text-decoration-thickness: 2px;
+    text-underline-offset: .1rem;
+}
+
+#main-content aside>ol>li>a:hover{
+    text-decoration: underline solid;
+    text-decoration-thickness: 3px;
+} 
+
+
+/* END OF MAIN RULES */
+
+
+/* FOOTER RULES */
+
+#footer{
+}
+
+/* END OF FOOTER RULES */
