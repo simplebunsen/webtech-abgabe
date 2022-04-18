@@ -9,6 +9,9 @@ html {
     font-size: 20px;
 }
 
+
+
+
 /* Vars */
 
 :root {
@@ -329,3 +332,30 @@ body {
 }
 
 /* END OF FOOTER RULES */
+
+
+
+/* Print specific */
+
+html{
+    font-size: 12px;
+}
+a[href]::after {
+    content: " (Link <" attr(href) ">)";
+  }
+
+#navigation {
+    display: none;
+}
+
+#footer{
+    display: none;
+}
+
+body{
+    display:block;
+}
+
+#main-content{
+    flex-direction: column-reverse;
+}
