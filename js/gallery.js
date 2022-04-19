@@ -1,5 +1,7 @@
 //change this when adding new pictures
+'use strict';
 const imagesCount = 6;
+
 
 let slides = [];
 let currentImage = 1;
@@ -10,6 +12,11 @@ function init() {
     slides[1] = document.getElementById("mid-slide");
     slides[2] = document.getElementById("right-slide");
     updateImages();
+    setInterval(startCycling, 5000);
+}
+
+function startCycling(){
+    updateImages("right");
 }
 
 function updateImages(direction) {

@@ -4,10 +4,19 @@
     box-sizing: border-box;
 }
 
+
+/* fluid responseive font size formula calculated by https://websemantics.uk/tools/responsive-font-calculator/*/
+/* 15px @ 480px increasing to 25px @ 2160px */
 html {
+    font-size: clamp(15px, calc(0.9375rem + ((1vw - 4.8px) * 0.5952)), 25px);
+    /* Note: The calc base value (0.9375rem) MUST be stated in REM to maintain accessibility */
+    /* Where: 0.5952 = 100 * font-size_difference / viewport_width_difference */
+  
+    /* Safari resize fix */
+    min-height: 0vw;
+
     height: 100%;
-    font-size: 20px;
-}
+  }
 
 /* Vars */
 
@@ -28,14 +37,15 @@ body {
 body {
     margin: 0px;
     min-height: 100%;
+    width: 100%;
     display: grid;
-    grid-template-columns: 12rem repeat(3, 1fr);
+    grid-template-columns: 15rem 1fr;
     grid-template-rows: 5rem auto 5rem;
 }
 
 #header {
     background-color: var(--dark-blue);
-    grid-column: 1 / 5;
+    grid-column: 1 / 3;
     grid-row: 1 / 2;
     color: white;
 }
@@ -48,13 +58,13 @@ body {
 }
 
 #main-content {
-    grid-column: 2 / 5;
+    grid-column: 2 / 3;
     grid-row: 2 / 3;
 }
 
 #footer {
     background-color: var(--dark-blue);
-    grid-column: 1 / 5;
+    grid-column: 1 / 3;
     grid-row: 3 / 4;
     color: white;
 }
@@ -111,10 +121,24 @@ body {
 
 #header h1 {
     transition: .5s;
+    white-space: initial;
 }
 
 #header h1:hover {
     transform: scale(1.05);
+}
+
+/*Tablet*/
+@media screen and (max-width: 1024px)
+{
+}
+
+/*Smartphone*/
+@media screen and (max-width: 480px)
+{
+    #header h1{
+        font-size: 1.7em;
+    }
 }
 
 /* END OF HEADER RULES */
@@ -122,11 +146,14 @@ body {
 /* NAVIGATION RULES */
 
 #navigation {
+    overflow: hidden;
+    height: 100%;
+}
+
+#navigation > div.nav-wrapper{    
     position: fixed;
     top: 0;
     padding: 6rem 4rem 0 1.5rem;
-    overflow: hidden;
-    height: 100%;
 }
 
 #navigation ul {
@@ -146,6 +173,43 @@ body {
     text-decoration: underline dotted;
     text-decoration-thickness: 2px;
     text-underline-offset: 0.1rem;
+}
+
+/*Tablet*/
+@media screen and (max-width: 1024px) {
+    body{
+        grid-template-columns: 13rem 1fr;
+    }
+}
+
+/*Smartphone*/
+@media screen and (max-width: 480px) {
+    body{
+        grid-template-columns: 2rem 1fr;
+    }
+
+    #navigation ul {
+        display: flex;
+        flex-direction: row;
+        flex-basis: auto;
+        gap: 2rem;
+    }
+    #navigation{
+        width: 2rem;
+        padding: 0;
+    }
+
+    #navigation > div.nav-wrapper{
+        padding: 0;
+        width: 700px;
+        transform-origin: top left;
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+        height: fit-content;
+        transform: rotate(90deg) translate(8rem,-2.2rem);
+        
+    }
 }
 
 /* END OF NAVIGATION RULES */
@@ -176,7 +240,7 @@ body {
     margin-bottom: .8rem;
 }
 
-#main-content article p{
+#main-content article p {
     margin-bottom: 1.5rem;
     line-height: 2rem;
 }
@@ -185,6 +249,7 @@ body {
     border-style: dotted;
     /* this will make the caption be no larger than the fig img */
     width: 20rem;
+    max-width: 90%;
     float: right;
     margin: 1rem;
     margin-bottom: 0.1rem;
@@ -208,7 +273,7 @@ body {
 #main-content aside {
     position: sticky;
     top: 6rem;
-    max-width: 20%;
+    max-width: max-content;
     border-style: double;
     border-width: 3px;
 
@@ -233,15 +298,39 @@ body {
     text-decoration-thickness: 3px;
 }
 
-#main-content article .multiple-cols{
+#main-content article .multiple-cols {
     columns: 2;
 }
 
-#main-content article .multiple-cols > figure{
+#main-content article .multiple-cols>figure {
     display: inline-block;
     float: none;
     width: auto;
 }
+
+/*Tablet*/
+@media screen and (max-width: 1024px) {
+    #main-content {
+        flex-direction: column-reverse;
+    }
+
+    #main-content aside {
+        position: static;
+        margin-top: 0;
+    }
+
+    #main-content figure.image {
+        float: none;
+        margin: 0.3rem auto;
+    }
+
+    #main-content h1 {
+        text-align: center;
+    }
+}
+
+/*Smartphone*/
+@media screen and (max-width: 480px) {}
 
 /* MAIN GALLERY RULES!!!*/
 
@@ -264,16 +353,16 @@ body {
 #main-content div.gallery-slide {
     flex: auto;
     width: 33%;
-    height: 20rem;
-    padding: .8rem;
     margin: .4rem;
+    padding: .8rem;
     border: 1px solid grey;
 }
 
 #main-content img.gallery-image {
+    aspect-ratio: 16/9;
+    vertical-align: top;
     width: 100%;
-    height: 100%;
-    max-width: 100%;
+    height: auto;
     object-fit: cover;
 }
 
@@ -288,6 +377,7 @@ body {
 
 #main-content div.gallery-control>button>svg {
     transition: transform .5s, color .5s;
+    width: 4rem;
 }
 
 #main-content div.gallery-control>button:hover>svg {
@@ -295,8 +385,36 @@ body {
     color: var(--middle-blue);
 }
 
-#main-content div.gallery-control>button>svg {
-    width: 4rem;
+
+/*Special Gallery Rule 1*/
+@media screen and (max-width: 1800px)
+{
+    #main-content div.gallery-slide{
+        padding: 0.2rem;
+    }
+    #main-content div.gallery-slide{
+        width: 100%;
+    }
+}
+
+/*Special Gallery Rule 1*/
+@media screen and (max-width: 1300px){
+    #main-content div.gallery-container{
+        flex-direction: column;
+    }
+    #main-content div.gallery-control>button{
+        transform: rotate(90deg);
+    }
+}
+
+/*Tablet*/
+@media screen and (max-width: 1024px)
+{
+}
+
+/*Smartphone*/
+@media screen and (max-width: 480px)
+{
 }
 
 
