@@ -11,12 +11,12 @@ html {
     font-size: clamp(15px, calc(0.9375rem + ((1vw - 4.8px) * 0.5952)), 25px);
     /* Note: The calc base value (0.9375rem) MUST be stated in REM to maintain accessibility */
     /* Where: 0.5952 = 100 * font-size_difference / viewport_width_difference */
-  
+
     /* Safari resize fix */
     min-height: 0vw;
 
     height: 100%;
-  }
+}
 
 /* Vars */
 
@@ -120,6 +120,9 @@ body {
 }
 
 #header h1 {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: .4rem;
     transition: .5s;
     white-space: initial;
 }
@@ -129,14 +132,11 @@ body {
 }
 
 /*Tablet*/
-@media screen and (max-width: 1024px)
-{
-}
+@media screen and (max-width: 1024px) {}
 
 /*Smartphone*/
-@media screen and (max-width: 480px)
-{
-    #header h1{
+@media screen and (max-width: 480px) {
+    #header h1 {
         font-size: 1.7em;
     }
 }
@@ -150,7 +150,7 @@ body {
     height: 100%;
 }
 
-#navigation > div.nav-wrapper{    
+#navigation>div.nav-wrapper {
     position: fixed;
     top: 0;
     padding: 6rem 4rem 0 1.5rem;
@@ -177,15 +177,15 @@ body {
 
 /*Tablet*/
 @media screen and (max-width: 1024px) {
-    body{
-        grid-template-columns: 13rem 1fr;
+    body {
+        grid-template-columns: 13rem auto;
     }
 }
 
 /*Smartphone*/
 @media screen and (max-width: 480px) {
-    body{
-        grid-template-columns: 2rem 1fr;
+    body {
+        grid-template-columns: 2rem auto;
     }
 
     #navigation ul {
@@ -194,12 +194,13 @@ body {
         flex-basis: auto;
         gap: 2rem;
     }
-    #navigation{
-        width: 2rem;
+
+    #navigation {
+        width: auto;
         padding: 0;
     }
 
-    #navigation > div.nav-wrapper{
+    #navigation>div.nav-wrapper {
         padding: 0;
         width: 700px;
         transform-origin: top left;
@@ -207,8 +208,8 @@ body {
         flex-direction: row;
         gap: 2rem;
         height: fit-content;
-        transform: rotate(90deg) translate(8rem,-2.2rem);
-        
+        transform: rotate(90deg) translate(8rem, -2.2rem);
+
     }
 }
 
@@ -223,7 +224,6 @@ body {
 }
 
 #main-content article {
-    max-width: 1000px;
     text-align: justify;
 }
 
@@ -308,10 +308,16 @@ body {
     width: auto;
 }
 
+/*Alle links die nicht anders gestyled sind */
+#main-content a:hover {
+    color: red;
+}
+
 /*Tablet*/
 @media screen and (max-width: 1024px) {
     #main-content {
         flex-direction: column-reverse;
+        width: auto;
     }
 
     #main-content aside {
@@ -321,7 +327,7 @@ body {
 
     #main-content figure.image {
         float: none;
-        margin: 0.3rem auto;
+        margin: 0.5rem auto;
     }
 
     #main-content h1 {
@@ -330,7 +336,16 @@ body {
 }
 
 /*Smartphone*/
-@media screen and (max-width: 480px) {}
+@media screen and (max-width: 480px) {
+    #main-content {
+        padding: 1rem;
+        margin: 2rem auto;
+    }
+
+    #main-content article .multiple-cols {
+        columns: 1;
+    }
+}
 
 /* MAIN GALLERY RULES!!!*/
 
@@ -387,35 +402,32 @@ body {
 
 
 /*Special Gallery Rule 1*/
-@media screen and (max-width: 1800px)
-{
-    #main-content div.gallery-slide{
+@media screen and (max-width: 1800px) {
+    #main-content div.gallery-slide {
         padding: 0.2rem;
     }
-    #main-content div.gallery-slide{
+
+    #main-content div.gallery-slide {
         width: 100%;
     }
 }
 
 /*Special Gallery Rule 1*/
-@media screen and (max-width: 1300px){
-    #main-content div.gallery-container{
+@media screen and (max-width: 1300px) {
+    #main-content div.gallery-container {
         flex-direction: column;
     }
-    #main-content div.gallery-control>button{
+
+    #main-content div.gallery-control>button {
         transform: rotate(90deg);
     }
 }
 
 /*Tablet*/
-@media screen and (max-width: 1024px)
-{
-}
+@media screen and (max-width: 1024px) {}
 
 /*Smartphone*/
-@media screen and (max-width: 480px)
-{
-}
+@media screen and (max-width: 480px) {}
 
 
 /* END OF MAIN GALLERY RULES!!!*/
