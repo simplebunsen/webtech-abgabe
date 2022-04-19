@@ -423,13 +423,6 @@ body {
     }
 }
 
-/*Tablet*/
-@media screen and (max-width: 1024px) {}
-
-/*Smartphone*/
-@media screen and (max-width: 480px) {}
-
-
 /* END OF MAIN GALLERY RULES!!!*/
 /* END OF MAIN RULES */
 
