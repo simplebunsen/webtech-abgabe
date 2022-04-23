@@ -35,7 +35,7 @@ function updateImages(direction) {
     //offset for pictures shown to the left and right
     let foo = -1;
     slides.forEach(e => {
-        e.querySelector(".gallery-image").src =  `/assets/gallery-images/image-${mod(currentImage + foo, imagesCount)}.png`;
+        e.querySelector(".gallery-image").src =  `../assets/gallery-images/image-${mod(currentImage + foo, imagesCount)}.png`;
         foo++;
     });
 }

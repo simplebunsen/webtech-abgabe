@@ -44,6 +44,6 @@ Mehrspaltig wird zu einspaltig aufgrund Platzmangel
 beim Testen der responsiven Breakpoints und spezieller Device-Presets in den DevTools von sowohl Chrome als auch Firefox, 
 gab es immer wieder Probleme, dass nicht die korrekte Breite an die Seite weitergegeben wird.
 
-Nach meiner Recherche sind dies Browser Bugs, die Responsiveness funktioniert dann wieder, wenn man den Browser neu öffnet.
+Nach meiner Recherche sind dies Browser-Bugs, die Responsiveness funktioniert dann wieder, wenn man den Browser neu öffnet.
 
-Auch beim Testen auf echter Hardware (Galaxy A51, Ipad etc.) funktioniert die Responsiveness.
+Auch beim Testen auf echter Hardware (Galaxy A51, Ipad etc.) funktioniert die Responsiveness problemlos.

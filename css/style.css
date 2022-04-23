@@ -1,3 +1,5 @@
+/* UNIVERSAL */
+
 * {
     margin: 0;
     padding: 0;
@@ -5,7 +7,7 @@
 }
 
 
-/* fluid responseive font size formula calculated by https://websemantics.uk/tools/responsive-font-calculator/*/
+/* fluid responsive font size formula as calculated by https://websemantics.uk/tools/responsive-font-calculator/*/
 /* 15px @ 480px increasing to 25px @ 2160px */
 html {
     font-size: clamp(15px, calc(0.9375rem + ((1vw - 4.8px) * 0.5952)), 25px);
@@ -24,8 +26,6 @@ html {
     --light-blue: #1C57CB;
     --middle-blue: #222C5F;
     --dark-blue: #161c41;
-    --sec-color: #9AB044;
-    --highlight-blue: #8DC4FC;
 }
 
 
@@ -72,6 +72,8 @@ body {
 /* END OF GRID SETUP */
 
 
+
+
 /* HEADER RULES */
 
 @keyframes wriggle {
@@ -93,6 +95,7 @@ body {
 }
 
 #header img.logo {
+
     height: 4rem;
     -webkit-filter: invert(100%);
     /* Safari/Chrome */
@@ -131,6 +134,7 @@ body {
     transform: scale(1.05);
 }
 
+
 /*Tablet*/
 @media screen and (max-width: 1024px) {}
 
@@ -142,6 +146,9 @@ body {
 }
 
 /* END OF HEADER RULES */
+
+
+
 
 /* NAVIGATION RULES */
 
@@ -215,6 +222,10 @@ body {
 
 /* END OF NAVIGATION RULES */
 
+
+
+
+
 /* MAIN RULES */
 
 #main-content {
@@ -259,8 +270,6 @@ body {
 #main-content figure>img {
     width: 100%;
 }
-
-
 
 #main-content figure figcaption {
     padding: 0 0.5rem 0.3rem 0.5rem;
@@ -347,6 +356,9 @@ body {
     }
 }
 
+
+
+
 /* MAIN GALLERY RULES!!!*/
 
 #main-content article#gallery-article {
@@ -424,7 +436,9 @@ body {
 }
 
 /* END OF MAIN GALLERY RULES!!!*/
+
 /* END OF MAIN RULES */
+
 
 
 

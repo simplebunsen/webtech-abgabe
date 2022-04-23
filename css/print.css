@@ -337,9 +337,16 @@ body {
 
 /* Print specific */
 
+@page  { size: auto; margin: 25mm 25mm 25mm 25mm;  } 
+
 html{
-    font-size: 12px;
+    font-size: 12pt;  
 }
+
+html p, html h2, html h1, html figure {
+    overflow: visible !important;      
+}
+
 a[href]::after {
     content: " (Link <" attr(href) ">)";
   }
